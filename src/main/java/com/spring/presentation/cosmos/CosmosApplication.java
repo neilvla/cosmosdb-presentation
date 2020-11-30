@@ -27,6 +27,7 @@ public class CosmosApplication implements CommandLineRunner {
 
 		//programacionPorProcedimiento();
 		//programacionReactiva();
+		userReactiveRepository.allByLastName("Gonzáles").subscribe(System.out::println, throwable -> log.error("Error: {}", throwable.getMessage()));
 	}
 
 	private void programacionPorProcedimiento() {
