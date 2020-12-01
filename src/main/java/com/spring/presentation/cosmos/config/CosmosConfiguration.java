@@ -8,6 +8,8 @@ import com.azure.spring.data.cosmos.config.AbstractCosmosConfiguration;
 import com.azure.spring.data.cosmos.config.CosmosConfig;
 import com.azure.spring.data.cosmos.core.ResponseDiagnostics;
 import com.azure.spring.data.cosmos.core.ResponseDiagnosticsProcessor;
+import com.azure.spring.data.cosmos.repository.config.EnableCosmosRepositories;
+import com.azure.spring.data.cosmos.repository.config.EnableReactiveCosmosRepositories;
 import io.micrometer.core.lang.Nullable;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +17,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@EnableCosmosRepositories(basePackages = "com.spring.presentation.cosmos.dao.repository")
+@EnableReactiveCosmosRepositories(basePackages = "com.spring.presentation.cosmos.dao.repository")
 @Slf4j
 public class CosmosConfiguration extends AbstractCosmosConfiguration {
 
@@ -67,7 +71,7 @@ public class CosmosConfiguration extends AbstractCosmosConfiguration {
 
         @Override
         public void processResponseDiagnostics(@Nullable ResponseDiagnostics responseDiagnostics) {
-            log.info("Response Diagnostics {}", responseDiagnostics);
+            //log.info("Response Diagnostics {}", responseDiagnostics);
         }
     }
 
