@@ -28,7 +28,6 @@ public class UserReactiveController {
 
     @PostMapping
     public Mono<User> create(@RequestBody User user) {
-        user.setId(UUID.randomUUID().toString());
         return reactiveService.create(user);
     }
 
